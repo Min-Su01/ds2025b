@@ -1,14 +1,6 @@
-def move_zereos(a_list):
-    zero_index = 0
-    for index, n in enumerate(a_list):
-        if n != 0:
-            a_list[zero_index] = n
-            if zero_index != index:
-                a_list[index] = 0
-            zero_index += 1
-    return(a_list)
+groups = ['Hot','Seventeen','Black Pink', 'NJZ']
+ratings = [1, 2, 3, 4]
+#groups와 rating 합치기, rating을 1,2 등 갯 수를 줄여도 있는 것까지만 합함
 
-
-a_list = [8, 0, 3, 0, 12]
-move_zereos(a_list)
-print(a_list)
+group_rataing = list(zip(groups, ratings))
+print(group_rataing)
