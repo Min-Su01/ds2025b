@@ -1,6 +1,7 @@
-groups = ['Hot','Seventeen','Black Pink', 'NJZ']
-ratings = [1, 2, 3, 4]
-#groups와 rating 합치기, rating을 1,2 등 갯 수를 줄여도 있는 것까지만 합함
 
-group_rataing = list(zip(groups, ratings))
-print(group_rataing)
+#city = ['Incheon','Incheon' ,'Seoul', 'Gimpo'] #리스트나 튜플 등을 {} set에 주면 중복되는 것들 삭제
+city = {'Incheon','Incheon','Seoul', 'Gimpo'}  #set사용으로 중복 삭제
+city = set(city)
+city.add('Anyang')
+city.add('Seoul') #set사용으로 중복삭제!
+print(city)
