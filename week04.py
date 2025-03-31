@@ -11,6 +11,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+
     def append(self, data):
          if not self.head:
              self.head = Node(data)
@@ -19,6 +20,20 @@ class LinkedList:
          while current.link:
              current = current.link  # 다음노드로 이동
          current.link = Node(data)
+
+
+    def remove(self, target):
+        if self.head == target:
+            self.head = self.head.link
+            return
+        current = self.head
+        previous = None
+        while current:
+            if current.data == target:
+                previous.link = current.link
+            previous = current
+            current = current.link
+
 
     def search(self, target):
         current = self.head
@@ -38,17 +53,14 @@ class LinkedList:
             node = node.link
         return out_texts + "end"
 
-#ll = LinkedList()
-#ll.append(8)
-#ll.append(10)
-#ll.append(-9)
-#print(ll)
-#print(ll.search(100))
-#print(ll.search(10))
-
 ll = LinkedList()
-for _ in range(10):
-    ll.append(random.randint(1, 30))
-
+ll.append(8)
+ll.append(10)
+ll.append(-9)
 print(ll)
+print(ll.search(100))
 print(ll.search(10))
+ll.remove(10)
+ll.remove(8)
+print(ll)
+
