@@ -23,7 +23,9 @@ class LinkedList:
         out_texts = ""
         while node is not None:
             #print(node.data)
-            out_texts = out_texts + str(node.data) + " -> "
+            #out_texts = out_texts + str(node.data) + " -> "
+            out_texts = out_texts + f"{node.data}  -> " #f string
+
             node = node.link
         return out_texts + "end"
 
