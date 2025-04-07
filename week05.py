@@ -1,14 +1,17 @@
-s1 = list()
-print(lne(s1))
-s1.appned("Data structure") #push
-s1.appned("DataBase")   #push
-print(lne(s1))  #size
-print(s1)       #peek
-print(s1.pop())
-print(s1)
-print(s1.pop())
-print(s1)
-print(s1.pop())
-print(s1)
-#print(s1.pop())
-#print(s1)
+def check_parentheses(expression : str) -> bool:
+    stack = []
+    for letter in expression:
+        if letter == "(":
+            stack.append(letter)
+        if letter == ")":
+            if len(stack) == 0:
+                return False
+            else:
+                stack.pop()
+        return len(stack) == 0
+
+
+print(check_parentheses("(2+3)"))
+print(check_parentheses("(2+(3*9))"))
+print(check_parentheses("(2+(3*9)")) #스택에 여는 소괄호가 하나 남아 있어서 False
+print(check_parentheses(")2+(3*9)("))
