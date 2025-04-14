@@ -25,6 +25,7 @@ class Queue:
             self.rear.link = node
             self.rear = node
 
+
     def dequeue(self):
         if self.front is None:
             raise IndexError("Queue is empty!")
@@ -33,6 +34,7 @@ class Queue:
         self.front = self.front.link
         if self.front is None:
             self.rear = None
+        temp.link = None
         return temp.data
 
 
