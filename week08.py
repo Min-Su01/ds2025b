@@ -1,3 +1,25 @@
+def pre_order(node):
+    if node is None:
+        return
+    print(node.data, end='-')
+    pre_order(node.left)
+    pre_order(node.right)
+
+
+def in_order(node):
+    if node is None:
+        return
+    in_order(node.left)
+    print(node.data, end='-')
+    in_order(node.right)
+
+def post_order(node):
+    if node is None:
+        return
+    post_order(node.left) #L
+    post_order(node.right) #R
+    print(node.data, end='-') #P
+
 class TreeNode:
 	def __init__(self):
 		self.left = None
@@ -27,5 +49,12 @@ node6 = TreeNode()
 node6.data = 'sm'
 node3.left = node6
 
-print(node6.data)
-print(node1.right.left.data)
+post_order(node1) #후
+print()
+pre_order(node1) #전
+print()
+in_order(node1) #중
+
+# hs -> sl -> hw -> zz -> mb -> sm 전위
+# hw -> zz -> sl -> sm -> mb -> hs 후위
+# hw -> sl -> zz -> hs -> sm -> mb 중위
