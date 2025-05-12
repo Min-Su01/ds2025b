@@ -1,3 +1,6 @@
+from turtledemo.clock import current_day
+
+
 class TreeNode:
 	def __init__(self):
 		self.left = None
@@ -31,7 +34,6 @@ def post_order(node):
 def insert(root, value):
     new_node = TreeNode()
     new_node.data = value
-
     if root is None:  # 첫 번째 노드일때 처리
         return new_node
 
@@ -50,6 +52,24 @@ def insert(root, value):
     return root
 
 
+def search(find_number):
+    current = root
+    while True:
+        if find_number == current.data:
+            print(f"{find_number}을(를) 찾았습니다")
+            break
+        elif find_number < current.data:
+            if current.left is None:
+                print(f"{find_number}이(가) 존재하지 않습니다")
+                break
+            current = current.left
+        else:
+            if current.right is None:
+                print(f"{find_number}이(가) 존재하지 않습니다")
+                break
+            current = current.right
+
+
 if __name__ == "__main__":
     numbers = [10, 15, 8, 3, 9]
     root = None
@@ -63,21 +83,7 @@ if __name__ == "__main__":
     in_order(root)  # 3->8->9->10->15
     print()
     pre_order(root)  # 10->8->3->9->15
-
-    # find_number = int(input())
-    #
-    # current = root
-    # while True:
-    #     if find_number == current.data:
-    #         print(f"{find_number}을(를) 찾았습니다")
-    #         break
-    #     elif find_number < current.data:
-    #         if current.left is None:
-    #             print(f"{find_number}이(가) 존재하지 않습니다")
-    #             break
-    #         current = current.left
-    #     else:
-    #         if current.right is None:
-    #             print(f"{find_number}이(가) 존재하지 않습니다")
-    #             break
-    #         current = current.right
+    print()
+    # search 함수에 입력 부분 제거, 출력 부분 제거, 함수의 매개변수는 찾고자 하는 값, 리턴 값은 bool
+    number = int(input("찾고자 하는 길: "))
+    search(number)
