@@ -10,12 +10,15 @@ graph = [
 ]
 #dfs(깊이 우선 탐색): 모든 노드를 방문하는 방법
 #깊이 우선 탐색이 너비 우선 탐색보다 좀 더 간단하다. (속도는 너비가 더 빠르다)
-def dfs(g, i, visited):
-    visited[i] = 1
-    print(chr(ord('A')+i), end=' ')
-    for j in range(len(g)):
-        if g[i][j] == 1 and not visited[j]:
-            dfs(g, j, visited)
 
-visited_dfs = [0 for _ in range(len(graph))]
+def dfs(g, i, visited):
+    visited[i] = 1  # 현재 정점 i를 방문 처리
+    print(chr(ord('A')+i), end=' ')  # 정점 번호를 문자(A~H)로 출력
+    
+    #인접한 모든 정점을 검사
+    for j in range(len(g)):     #j번 정점이 i와 연결되어 있고, 아직 방문하지 않았다면
+        if g[i][j] == 1 and not visited[j]:
+            dfs(g, j, visited)      #재귀 호출로 j번 정점 방문
+
+visited_dfs = [0 for _ in range(len(graph))]    #방문 여부를 저장하는 리스트 초기화( 0: 미방문, 1: 방문)
 dfs(graph, 7, visited_dfs) #정점 7, 즉 'H'에서 탐색을 시작한다는 뜻.
