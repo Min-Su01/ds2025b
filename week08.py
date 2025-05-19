@@ -113,3 +113,5 @@ if __name__ == "__main__":
     del_number = int(input("제거할 값 :"))
     root = delete(root, del_number)
     post_order(root)
+
+#
