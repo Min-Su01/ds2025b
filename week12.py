@@ -14,9 +14,17 @@ def print_graph(g) :
 		print()
 	print()
 
+def dfs(g, current, visited):
+	visited.append(current)
+	for vertex in range(graph_size):
+		if g.graph[current][vertex] != 0 and vertex not in visited
+
+
 def find_vertex(g, find_vtx) :
-	stack = list()
 	visited_ary = list()
+	start = 0
+	dfs(g, start, visited_ary)
+	return find_vtx in visited_ary
 
 	current = 0	# 시작 정점
 	stack.append(current)
